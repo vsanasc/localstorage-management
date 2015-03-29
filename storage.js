@@ -1,12 +1,14 @@
 
 var DB = function(name) {
 
+	//Check if exists localStorage and create if necessary
 	var checkOrCreate = function() {
 		if (localStorage.getItem(this.name) == null) {
 			localStorage.setItem(this.name, "[]");
 		}
 	};
 
+	//check if uuid is valid
 	var checkUuid = function(uuid) {
 		if (typeof uuid != 'string')
 			return false;
@@ -17,7 +19,7 @@ var DB = function(name) {
 
 		return false;
 	};
-
+	
 	var updateValue = function(obj) {
 		for (var i = 1; i < arguments.length; i++) {
 			for (var prop in arguments[i]) {
